@@ -48,13 +48,12 @@ public class User implements Serializable {
 		super();
 	}
 
-	public User(Integer id, String name, String email, String validationCode, Set<String> phones, UserProfile profile) {
+	public User(Integer id, String name, String email, String validationCode, UserProfile profile) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.validationCode = validationCode;
-		this.phones = phones;
 		addProfile(profile);
 	}
 	
