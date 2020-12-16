@@ -29,8 +29,9 @@ public class UserRegistrationController {
 		return ResponseEntity.ok("Serviço Rodando");
 	}
 	
+	//TODO: modificar este método apenas para criação e criar outro método para update, protegidos por role
 	@PostMapping()
-	public ResponseEntity<User> createOrUpdateUser(@Valid @RequestBody User user){
+	public ResponseEntity<User> create(@Valid @RequestBody User user){
 		
 		User savedUser = userService.createOrUpdateUser(user);
 		URI location = ServletUriComponentsBuilder
@@ -42,7 +43,8 @@ public class UserRegistrationController {
 	}
 	
 	@GetMapping("/{id}")
-	public User retrieveUser(@PathVariable int id) {
-		return userService.findById(id);
+	public ResponseEntity<User> retrieveUser(@PathVariable int id) {
+		User user =  userService.findById(id);
+		return ResponseEntity.ok().body(user);
 	}
 }
