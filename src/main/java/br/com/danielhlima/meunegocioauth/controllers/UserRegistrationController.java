@@ -1,8 +1,6 @@
 package br.com.danielhlima.meunegocioauth.controllers;
 
 import java.net.URI;
-import java.util.Optional;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,9 +30,9 @@ public class UserRegistrationController {
 	}
 	
 	@PostMapping()
-	public ResponseEntity<User> createUser(@Valid @RequestBody User user){
+	public ResponseEntity<User> createOrUpdateUser(@Valid @RequestBody User user){
 		
-		User savedUser = userService.createUser(user);
+		User savedUser = userService.createOrUpdateUser(user);
 		URI location = ServletUriComponentsBuilder
 				.fromCurrentRequest()
 				.path("/{id}")

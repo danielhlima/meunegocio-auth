@@ -27,7 +27,7 @@ public class User implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Size(min = 3, message="Name should have at least 3 characters")
+	@Size(min = 3, message="O nome deve ter ao menos 3 caracteres")
 	private String name;
 	
 	@Column(unique=true)
@@ -44,11 +44,11 @@ public class User implements Serializable {
 	@CollectionTable(name="PHONES")
 	private Set<String> phones = new HashSet<>();
 	
+	private boolean active;
+	
 	
 
-	public User() {
-		super();
-	}
+	public User() {}
 
 	public User(Integer id, String name, String email, String validationCode, UserProfile profile) {
 		super();
@@ -109,6 +109,14 @@ public class User implements Serializable {
 
 	public void setPhones(Set<String> phones) {
 		this.phones = phones;
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 
 	@Override
