@@ -19,7 +19,7 @@ import br.com.danielhlima.meunegocioauth.services.UserService;
 
 @RestController
 @RequestMapping("users")
-public class UserRegistrationController {
+public class UserController {
 	
 	@Autowired
 	private UserService userService;
