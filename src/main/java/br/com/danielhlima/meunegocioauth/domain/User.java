@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 
 import br.com.danielhlima.meunegocioauth.domain.enums.UserProfile;
@@ -30,6 +31,7 @@ public class User implements Serializable {
 	private String name;
 	
 	@Column(unique=true)
+	@Email(message="E-mail inválido")
 	private String email;
 	@Column(unique=true)
 	private String validationCode;
